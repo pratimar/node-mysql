@@ -1,0 +1,27 @@
+npm install mysql
+touch insert.js
+touch select.js
+
+
+SQL Injection:
+query string from user = ?id=1; drop table articles;
+It will invoke both sql expressions
+if multipleStatements: true in the createConnection()
+
+This can happen if you use 'select * from articles where id = ' + id
+To prevent this use - 
+1. ? (placeholder)
+2. surround each argument from user in connection.escape(id) 'select * from articles where id = ' + connection.escape(id)
+
+Tutorial - 
+Code Cast channel - How to connect to MySQL Database from Node.js
+
+Steps:
+1. Import mysql
+2. Create connection (pass in the connection object with localhost, user, password, database, socketPath)
+3. Connect 
+4. Query
+
+To access MySQL - 
+mysql -u root -p
+
